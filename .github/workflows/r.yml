@@ -41,14 +41,18 @@ jobs:
           r-version: ${{ matrix.config.r }}
       - name: where am I?
         run: |
+          setwd("MDSMap")
           getwd()
           list.files()
         shell: Rscript {0}
       - name: Install dependencies
         run: |
+          setwd("MDSMap")
           install.packages(c("remotes", "rcmdcheck"))
           remotes::install_deps(dependencies = TRUE)
         shell: Rscript {0}
       - name: Check
-        run: rcmdcheck::rcmdcheck(args = "--no-manual", error_on = "error")
+        run: |
+          setwd("MDSMap")
+          rcmdcheck::rcmdcheck(args = "--no-manual", error_on = "error")
         shell: Rscript {0}

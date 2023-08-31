@@ -48,8 +48,13 @@ jobs:
       - name: Install dependencies
         run: |
           setwd("MDSMap")
-          install.packages(c("remotes", "rcmdcheck"))
+          install.packages(c("remotes", "rcmdcheck", "roxygen2"))
           remotes::install_deps(dependencies = TRUE)
+        shell: Rscript {0}
+      - name: roxygenise
+        run: |
+          library(roxygen2)
+          roxygenise("MDSMap")
         shell: Rscript {0}
       - name: Check
         run: |

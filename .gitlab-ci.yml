@@ -31,7 +31,7 @@ deps-job:
     - pwd
     - ls -la
     - ls -la MDSMap
-    - cd MDSMap & R -e "remotes::install_deps(dependencies=TRUE)"
+    - cd MDSMap && R -e "remotes::install_deps(dependencies=TRUE)"
 
 rcmdcheck-job:
   stage: rcmdcheck

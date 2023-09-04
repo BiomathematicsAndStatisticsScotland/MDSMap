@@ -1,6 +1,6 @@
 stages:
-  - roxygen
   - deps
+  - roxygen
   - rcmdcheck
   - build
 
@@ -18,7 +18,9 @@ default:
 
 roxygen-job:
   stage: roxygen
+  needs: ["deps-job"]
   script:
+    - apt install libglu1-mesa
     - R -e "roxygen2::roxygenise(\"MDSMap\")"
 
 deps-job:
@@ -30,5 +32,5 @@ rcmdcheck-job:
   stage: rcmdcheck
   needs: ["roxygen-job", "deps-job"]
   script:
-    - cd MDSMap & R CMD check
+    - R CMD check MDSMap --no-build-vignettes --no-manual
 

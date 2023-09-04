@@ -1,0 +1,35 @@
+stages:
+  - roxygen
+  - deps
+  - rcmdcheck
+  - build
+
+image: rocker/tidyverse
+
+default:
+  before_script:
+    - mkdir -p installed_deps
+    - echo 'R_LIBS="installed_deps"' > .Renviron
+    - echo 'R_LIBS_USER="installed_deps"' >> .Renviron
+    - echo 'R_LIBS_SITE="installed_deps"' >> .Renviron
+  cache:
+    key: "$CI_COMMIT_REF_SLUG"
+    paths:
+     - installed_deps/
+
+roxygen-job:
+  stage: roxygen
+  script:
+    - R -e "roxygen2::roxygenise(\"MDSMap\")"
+
+deps-job:
+  stage: deps
+  script:
+    - cd MDSMap & R -e "remotes::install_deps(dependencies=TRUE)"
+
+rcmdcheck-job:
+  stage: rcmdcheck
+  needs: ["roxygen-job", "deps-job"]
+  script:
+    - cd MDSMap & R CMD check
+

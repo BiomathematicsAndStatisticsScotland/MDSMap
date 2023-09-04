@@ -23,7 +23,7 @@ roxygen-job:
   needs: ["deps-job"]
   script:
     - apt-get update
-    - apt-get install libglu1-mesa
+    - apt-get -y install libglu1-mesa
     - R -e "roxygen2::roxygenise(\"MDSMap\")"
 
 deps-job:

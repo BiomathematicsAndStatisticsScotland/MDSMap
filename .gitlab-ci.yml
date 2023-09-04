@@ -8,10 +8,9 @@ image: rocker/tidyverse
 
 default:
   before_script:
-    - mkdir -p installed_deps
-    - echo 'R_LIBS="installed_deps"' > .Renviron
-    - echo 'R_LIBS_USER="installed_deps"' >> .Renviron
-    - ln -sf /.Renviron MDSMap/
+    - mkdir -p /installed_deps
+    - echo 'R_LIBS="/installed_deps"' > ~/.Renviron
+    - echo 'R_LIBS_USER="/installed_deps"' >> ~/.Renviron
   cache:
     key: "$CI_COMMIT_REF_SLUG"
     paths:

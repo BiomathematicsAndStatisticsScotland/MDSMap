@@ -8,9 +8,9 @@ image: rocker/tidyverse
 
 default:
   before_script:
-    - mkdir -p /installed_deps
-    - echo 'R_LIBS="/installed_deps"' > ~/.Renviron
-    - echo 'R_LIBS_USER="/installed_deps"' >> ~/.Renviron
+    - mkdir -p installed_deps
+    - echo 'R_LIBS="`pwd`/installed_deps"' > ~/.Renviron
+    - echo 'R_LIBS_USER="`pwd`/installed_deps"' >> ~/.Renviron
     - pwd
     - ls -la
   cache:

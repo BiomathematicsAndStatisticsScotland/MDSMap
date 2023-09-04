@@ -11,6 +11,8 @@ default:
     - mkdir -p /installed_deps
     - echo 'R_LIBS="/installed_deps"' > ~/.Renviron
     - echo 'R_LIBS_USER="/installed_deps"' >> ~/.Renviron
+    - pwd
+    - ls -la
   cache:
     key: "$CI_COMMIT_REF_SLUG"
     paths:
@@ -26,6 +28,9 @@ roxygen-job:
 deps-job:
   stage: deps
   script:
+    - pwd
+    - ls -la
+    - ls -la MDSMap
     - cd MDSMap & R -e "remotes::install_deps(dependencies=TRUE)"
 
 rcmdcheck-job:

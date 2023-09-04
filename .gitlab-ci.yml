@@ -11,7 +11,7 @@ default:
     - mkdir -p installed_deps
     - echo 'R_LIBS="installed_deps"' > .Renviron
     - echo 'R_LIBS_USER="installed_deps"' >> .Renviron
-    - echo 'R_LIBS_SITE="installed_deps"' >> .Renviron
+    - ln -sf /.Renviron MDSMap/
   cache:
     key: "$CI_COMMIT_REF_SLUG"
     paths:

@@ -41,6 +41,7 @@ rcmdcheck-job:
   script:
     - R CMD check MDSMap --no-build-vignettes --no-manual
   artifacts:
+    when: always
     paths:
       - MDSMap.Rcheck
 

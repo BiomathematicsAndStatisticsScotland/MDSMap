@@ -40,4 +40,7 @@ rcmdcheck-job:
   needs: ["roxygen-job", "deps-job"]
   script:
     - R CMD check MDSMap --no-build-vignettes --no-manual
+  artifacts:
+    paths:
+      - MDSMap.Rcheck
 

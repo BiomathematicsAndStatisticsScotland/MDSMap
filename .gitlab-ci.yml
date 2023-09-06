@@ -39,6 +39,8 @@ rcmdcheck-job:
   stage: rcmdcheck
   needs: ["roxygen-job", "deps-job"]
   script:
+    - apt-get update
+    - apt-get -y install libglu1-mesa
     - R CMD check MDSMap --no-build-vignettes --no-manual
   artifacts:
     when: always

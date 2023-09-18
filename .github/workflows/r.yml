@@ -17,6 +17,9 @@ on:
 permissions:
   contents: read
 
+env:
+  RGL_USE_NULL: true
+
 jobs:
   build:
     runs-on: ${{ matrix.config.os }}

@@ -13,4 +13,6 @@ Imports: smacof (>= 1.9.0),
 RoxygenNote: 6.0.1
 Suggests: qtl, R.rsp
 VignetteBuilder: R.rsp
+Encoding: UTF-8
+
 

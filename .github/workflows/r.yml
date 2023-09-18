@@ -47,8 +47,8 @@ jobs:
           needs: check
       - name: roxygenise
         run: |
-          library(roxygen2)
-          roxygenise("MDSMap")
+          install.packages("roxygen2")
+          roxygen2::roxygenise("MDSMap")
         shell: Rscript {0}
       - name: Check
         uses: r-lib/actions/check-r-package@v2

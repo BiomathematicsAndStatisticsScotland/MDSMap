@@ -7,7 +7,7 @@ stages:
 image: rocker/tidyverse
 
 variables:
-  RGL_USE_NULL: true
+  RGL_USE_NULL: "true"
 
 default:
   before_script:
@@ -29,7 +29,6 @@ roxygen-job:
 deps-job:
   stage: deps
   script:
-    - pwd
     - cd MDSMap && R -e "remotes::install_deps(dependencies=TRUE)"
 
 rcmdcheck-job:

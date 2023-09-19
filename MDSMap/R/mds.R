@@ -166,7 +166,7 @@ calc.maps.sphere<-function(fname,p=100,n=NULL,weightfn='lod2',mapfn='haldane'){
 #'
 #' Performs both an weighted MDS on the distance matrix using \code{\link[smacof]{smacofSym}} and 
 #' \code{\link[smacof]{smacofSphere}} (\cite{de Leeuw & Mair 2009}) and fits a 
-#' principal curve to map this to an interval (\code{\link[princurve]{principal.curve}} for details).
+#' principal curve to map this to an interval (\code{\link[princurve]{principal_curve}} for details).
 #'
 #' File names should be of the form \code{fname.txt} and it is assumed that they are in 
 #' a tab or space separated file of the format displayed below. The first entry on 
@@ -239,7 +239,7 @@ calc.maps.pc<-function(fname,spar=NULL,n=NULL,ndim=2,weightfn='lod2',mapfn='hald
   nloci=length(confplotno)
 
   smacofsym<-smacof::smacofSym(M,ndim=ndim,weightmat=lod,itmax=100000)
-  pc1<-princurve::principal.curve(smacofsym$conf,maxit=150,spar=spar)
+  pc1<-princurve::principal_curve(smacofsym$conf,maxit=150,spar=spar)
   scale<-sum(smacofsym$delta)/sum(smacofsym$dhat) 
   # Configuration dissim are based on the normalized observed diss - dhat. 
   # True observed dissimilarities are delta
@@ -432,7 +432,7 @@ calc.pair.rf.lod<-function(fname,weightfn='lod',...){
 #' \code{p} is a smoothing parameter which operates quite differently depending on 
 #' whether map estimation is performed using Principal Curves or Constrained 
 #' MDS. If the PC method is used, \code{p} determines the smoothing parameter spar in 
-#' the function \code{\link[princurve]{principal.curve}} from the package 
+#' the function \code{\link[princurve]{principal_curve}} from the package 
 #' \pkg{princurve}. If \code{NULL} then the most appropriate value will be determined 
 #' using leave one out cross validation. 
 #' If Constrained MDS is used then \code{p} must be set to a number which specifies the 
@@ -475,7 +475,7 @@ calc.pair.rf.lod<-function(fname,weightfn='lod',...){
 #'
 #' \cite{Hastie T, Weingessel A (2013) princurve: Fits a Principal Curve in Arbitrary Dimension. ) R package version 1.1-12.} \url{https://CRAN.R-project.org/package=princurve}
 #'
-#' @seealso \code{\link[smacof]{smacofSphere}}, \code{\link[princurve]{principal.curve}}, \code{\link{calc.maps.pc}}, \code{\link{calc.maps.sphere}}, \code{\link{plot.pcmap}}, \code{\link{plot.pcmap3d}}, \code{\link{plot.spheremap}}
+#' @seealso \code{\link[smacof]{smacofSphere}}, \code{\link[princurve]{principal_curve}}, \code{\link{calc.maps.pc}}, \code{\link{calc.maps.sphere}}, \code{\link{plot.pcmap}}, \code{\link{plot.pcmap3d}}, \code{\link{plot.spheremap}}
 #'
 #' @examples
 #' estimate.map(system.file("extdata", "lgI.txt", package="MDSMap"),

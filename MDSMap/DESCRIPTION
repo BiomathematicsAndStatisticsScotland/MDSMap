@@ -15,4 +15,3 @@ Suggests: qtl, R.rsp
 VignetteBuilder: R.rsp
 Encoding: UTF-8
 
-

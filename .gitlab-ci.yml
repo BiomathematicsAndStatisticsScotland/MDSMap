@@ -6,13 +6,14 @@ stages:
 
 image: rocker/tidyverse
 
+variables:
+  RGL_USE_NULL: true
+
 default:
   before_script:
     - mkdir -p installed_deps
     - echo 'R_LIBS="${CI_PROJECT_DIR}/installed_deps"' > ~/.Renviron
     - echo 'R_LIBS_USER="${CI_PROJECT_DIR}/installed_deps"' >> ~/.Renviron
-    - pwd
-    - ls -la
   cache:
     key: "$CI_COMMIT_REF_SLUG"
     paths:
@@ -23,24 +24,18 @@ roxygen-job:
   stage: roxygen
   needs: ["deps-job"]
   script:
-    - apt-get update
-    - apt-get -y install libglu1-mesa
     - R -e "roxygen2::roxygenise(\"MDSMap\")"
 
 deps-job:
   stage: deps
   script:
     - pwd
-    - ls -la
-    - ls -la MDSMap
     - cd MDSMap && R -e "remotes::install_deps(dependencies=TRUE)"
 
 rcmdcheck-job:
   stage: rcmdcheck
   needs: ["roxygen-job", "deps-job"]
   script:
-    - apt-get update
-    - apt-get -y install libglu1-mesa
     - R CMD check MDSMap --no-build-vignettes --no-manual
   artifacts:
     when: always

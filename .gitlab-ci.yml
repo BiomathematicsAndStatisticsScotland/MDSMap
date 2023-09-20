@@ -3,6 +3,7 @@ stages:
   - roxygen
   - rcmdcheck
   - build
+  - check-as-cran
 
 image: rocker/tidyverse
 
@@ -45,4 +46,13 @@ rcmdcheck-job:
     when: always
     paths:
       - MDSMap.Rcheck
+
+build-job:
+  stage: build
+  needs: ["roxygen-job", "deps-job"]
+  script:
+    - R CMD build MDSMap
+  artifacts:
+    paths:
+      - MDSMap_*.tar.gz
 

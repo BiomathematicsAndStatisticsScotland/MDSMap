@@ -61,7 +61,6 @@ check-as-cran-job:
   needs: ["build-job"]
   script:
     - echo 'options(repos = c(CRAN = "https://cloud.r-project.org"))' >>"${R_HOME}/etc/Rprofile.site"
-    - echo "R_HOME: ${R_HOME}"
     - R CMD check MDSMap_*.tar.gz --as-cran
   artifacts:
     when: always

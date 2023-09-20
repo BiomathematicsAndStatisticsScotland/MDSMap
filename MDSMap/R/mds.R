@@ -492,11 +492,11 @@ estimate.map<-function(fname,p=NULL,n=NULL,ispc=TRUE,ndim=2,weightfn='lod2',mapf
   }
   if(ispc==FALSE){
     map<-calc.maps.sphere(fname,p,n,weightfn=weightfn,mapfn=mapfn)
-    graphics::plot(map,displaytext=displaytext)
+    graphics::plot(map,D1lim, D2lim, displaytext=displaytext)
   } else {
     map<-calc.maps.pc(fname,spar=p,n,ndim=ndim,weightfn=weightfn,mapfn=mapfn)
     if(ndim==2) {
-	  graphics::plot(map,displaytext=displaytext)
+	  graphics::plot(map,D1lim, D2lim, displaytext=displaytext)
 	} else { 
 	  graphics::plot(map,D1lim,D2lim,D3lim,displaytext=displaytext)
 	}

@@ -243,7 +243,7 @@ calc.maps.pc<-function(fname,spar=NULL,n=NULL,ndim=2,weightfn='lod2',mapfn='hald
   scale<-sum(smacofsym$delta)/sum(smacofsym$dhat) 
   # Configuration dissim are based on the normalized observed diss - dhat. 
   # True observed dissimilarities are delta
-  maporder<-pc1$tag
+  maporder<-pc1$ord
   estpos<-pc1$lambda[maporder]*scale*100
   # gives the estimated length from the beginning of the line
   rownames<-lodrf$locinames[maporder]
@@ -993,13 +993,13 @@ plot.pcmap3d <- function (x,D1lim=NULL,D2lim=NULL,D3lim=NULL,displaytext=TRUE,..
     graphics::par(mfrow=c(2,2))
     graphics::plot(smacofsym$conf[,'D1'],smacofsym$conf[,'D2'],type="n",main='MDS with principal curve',xlab='Dimension 1',ylab='Dimension 2',xlim=D1lim,ylim=D2lim)
     text(smacofsym$conf[,'D1'],smacofsym$conf[,'D2'],labels=labels,cex=0.8)
-    lines(pc$s[,'D1'][pc$tag],pc$s[,'D2'][pc$tag])
+    lines(pc$s[,'D1'][pc$ord],pc$s[,'D2'][pc$ord])
     graphics::plot(smacofsym$conf[,'D1'],smacofsym$conf[,'D3'],type="n",main='MDS with principal curve',xlab='Dimension 1',ylab='Dimension 3',xlim=D1lim,ylim=D3lim)
     text(smacofsym$conf[,'D1'],smacofsym$conf[,'D3'],labels=labels,cex=0.8)
-    lines(pc$s[,'D1'][pc$tag],pc$s[,'D3'][pc$tag])
+    lines(pc$s[,'D1'][pc$ord],pc$s[,'D3'][pc$ord])
     graphics::plot(smacofsym$conf[,'D2'],smacofsym$conf[,'D3'],type="n",main='MDS with principal curve',xlab='Dimension 2',ylab='Dimension 3',xlim=D2lim,ylim=D3lim)
     text(smacofsym$conf[,'D2'],smacofsym$conf[,'D3'],labels=labels,cex=0.8)
-    lines(pc$s[,'D2'][pc$tag],pc$s[,'D3'][pc$tag])
+    lines(pc$s[,'D2'][pc$ord],pc$s[,'D3'][pc$ord])
     if (displaytext==TRUE) {
 	  labels1=locimap$locus
 	} else {
@@ -1009,7 +1009,7 @@ plot.pcmap3d <- function (x,D1lim=NULL,D2lim=NULL,D3lim=NULL,displaytext=TRUE,..
     text(locimap$position,locimap$nnfit,labels1)
     rgl::plot3d(smacofsym$conf,type="n")
     rgl::text3d(smacofsym$conf,text=labels)
-    lines3d(pc$s[pc$tag,])
+    lines3d(pc$s[pc$ord,])
   })
 }
 

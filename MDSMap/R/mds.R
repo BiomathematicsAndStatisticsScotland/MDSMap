@@ -398,9 +398,9 @@ calc.pair.rf.lod<-function(fname,weightfn='lod',...){
 #' @param D1lim Numeric vector specifying the limits of the axis relating to 
 #' dimension 1 of the wMDS used to estimate the map.
 #' @param D2lim Numeric vector specifying the limits of the axis relating to 
-#' dimension 1 of the wMDS used to estimate the map.
+#' dimension 2 of the wMDS used to estimate the map.
 #' @param D3lim Numeric vector specifying the limits of the axis relating to 
-#' dimension 1 of the wMDS used to estimate the map.
+#' dimension 3 of the wMDS used to estimate the map.
 #' @param displaytext Logical argument determining how markers should be labelled 
 #' in the wMDS configuration plot. If \code{TRUE} then marker names are used. If 
 #' \code{FALSE} then numbers are used.
@@ -945,8 +945,8 @@ plot.pcmap <- function (x,D1lim=NULL,D2lim=NULL,displaytext=TRUE,...){
 #'
 #' @param x Map object from calc.maps.pc() with 3 dimensions.
 #' @param D1lim Numeric vector specifying the limits of the axis relating to dimension 1 of the wMDS used to obtain pcmap3d.
-#' @param D2lim Numeric vector specifying the limits of the axis relating to dimension 1 of the wMDS used to obtain pcmap3d.
-#' @param D3lim Numeric vector specifying the limits of the axis relating to dimension 1 of the wMDS used to obtain pcmap3d.
+#' @param D2lim Numeric vector specifying the limits of the axis relating to dimension 2 of the wMDS used to obtain pcmap3d.
+#' @param D3lim Numeric vector specifying the limits of the axis relating to dimension 3 of the wMDS used to obtain pcmap3d.
 #' @param displaytext Logical argument determining how markers should be labelled 
 #' in the wMDS configuration plot. If TRUE then marker names are used. If FALSE then numbers are used.
 #' @param ... Further arguments are ignored. (accepted for compatibility with generic plot)

@@ -82,7 +82,7 @@
 #'
 #' @references
 #' \cite{de Leeuw J, Mair P (2009) Multidimensional scaling using majorization: SMACOF 
-#' in R. J Stat Softw 31: 1-30} \url{http://www.jstatsoft.org/v31/i03/}
+#' in R. J Stat Softw 31: 1-30} \url{https://www.jstatsoft.org/v31/i03/}
 #' @seealso
 #' \code{\link{calc.maps.pc}}, \code{\link{calc.pair.rf.lod}}, \code{\link[smacof]{smacofSym}}, \code{\link[smacof]{smacofSphere}}, \code{\link{map.to.interval}}, \code{\link{dmap}}, \code{\link{calc.nnfit}}
 #'
@@ -210,7 +210,7 @@ calc.maps.sphere<-function(fname,p=100,n=NULL,weightfn='lod2',mapfn='haldane'){
 #' \item{meannnfit}{The mean across all markers of the nearest neighbour fits.}
 #'
 #' @references
-#' \cite{de Leeuw J, Mair P (2009) Multidimensional scaling using majorization: SMACOF in R. J Stat Softw 31: 1-30} \url{http://www.jstatsoft.org/v31/i03/}
+#' \cite{de Leeuw J, Mair P (2009) Multidimensional scaling using majorization: SMACOF in R. J Stat Softw 31: 1-30} \url{https://www.jstatsoft.org/v31/i03/}
 #'
 #' \cite{Hastie T, Weingessel A (2013) princurve: Fits a Principal Curve in Arbitrary Dimension. ) R package version 1.1-12.} \url{https://CRAN.R-project.org/package=princurve}
 #'
@@ -471,7 +471,7 @@ calc.pair.rf.lod<-function(fname,weightfn='lod',...){
 #' \code{\link{calc.maps.sphere}} if \code{ispc=FALSE}.
 #'
 #' @references
-#' \cite{de Leeuw J, Mair P (2009) Multidimensional scaling using majorization: SMACOF in R. J Stat Softw 31: 1-30} \url{http://www.jstatsoft.org/v31/i03/}
+#' \cite{de Leeuw J, Mair P (2009) Multidimensional scaling using majorization: SMACOF in R. J Stat Softw 31: 1-30} \url{https://www.jstatsoft.org/v31/i03/}
 #'
 #' \cite{Hastie T, Weingessel A (2013) princurve: Fits a Principal Curve in Arbitrary Dimension. ) R package version 1.1-12.} \url{https://CRAN.R-project.org/package=princurve}
 #'
@@ -638,7 +638,7 @@ dmap<-function(rf,mapfn="haldane"){
 #' \item{radius}{A scalar the radius of sphere.}
 #'
 #' @references 
-#' \cite{de Leeuw J, Mair P (2009) Multidimensional scaling using majorization: SMACOF in R. J Stat Softw 31:1-30} \url{http://www.jstatsoft.org/v31/i03/}
+#' \cite{de Leeuw J, Mair P (2009) Multidimensional scaling using majorization: SMACOF in R. J Stat Softw 31:1-30} \url{https://www.jstatsoft.org/v31/i03/}
 #' @seealso
 #' \code{\link[smacof]{smacofSphere}}
 #' @examples
@@ -907,7 +907,7 @@ calc.nswaps<-function(map1, map2){
 #' marker name.
 #'
 #' @references
-#' \cite{de Leeuw J, Mair P (2009) Multidimensional scaling using majorization: SMACOF in R. J Stat Softw 31: 1-30} \url{http://www.jstatsoft.org/v31/i03/}
+#' \cite{de Leeuw J, Mair P (2009) Multidimensional scaling using majorization: SMACOF in R. J Stat Softw 31: 1-30} \url{https://www.jstatsoft.org/v31/i03/}
 #'
 #' @seealso
 #' \code{\link{plot.pcmap3d}}, \code{\link{plot.spheremap}},\code{\link[smacof]{plot.smacof}}, \code{\link{calc.maps.pc}}
@@ -973,7 +973,7 @@ plot.pcmap <- function (x,D1lim=NULL,D2lim=NULL,displaytext=TRUE,...){
 #' By default \code{displaytext=TRUE} and markers are labelled by marker name.
 #'
 #' @references
-#' \cite{de Leeuw J, Mair P (2009) Multidimensional scaling using majorization: SMACOF in R. J Stat Softw 31: 1-30} \url{http://www.jstatsoft.org/v31/i03/}
+#' \cite{de Leeuw J, Mair P (2009) Multidimensional scaling using majorization: SMACOF in R. J Stat Softw 31: 1-30} \url{https://www.jstatsoft.org/v31/i03/}
 #' @seealso 
 #' \code{\link{plot.pcmap}}, \code{\link{plot.spheremap}},\code{\link[smacof]{plot.smacof}}, \code{\link{calc.maps.pc}}, \code{\link[rgl]{plot3d}}
 #'
@@ -1051,7 +1051,7 @@ plot.pcmap3d <- function (x,D1lim=NULL,D2lim=NULL,D3lim=NULL,displaytext=TRUE,..
 #' marker name.
 #'
 #' @references
-#' \cite{de Leeuw J, Mair P (2009) Multidimensional scaling using majorization: SMACOF in R. J Stat Softw 31: 1-30} \url{http://www.jstatsoft.org/v31/i03/}
+#' \cite{de Leeuw J, Mair P (2009) Multidimensional scaling using majorization: SMACOF in R. J Stat Softw 31: 1-30} \url{https://www.jstatsoft.org/v31/i03/}
 #'
 #' @seealso
 #' \code{\link{plot.pcmap}}, \code{\link{plot.pcmap3d}}, \code{\link[smacof]{plot.smacof}}, \code{\link{calc.maps.sphere}}

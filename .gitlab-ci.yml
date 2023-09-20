@@ -56,3 +56,12 @@ build-job:
     paths:
       - MDSMap_*.tar.gz
 
+check-as-cran-job:
+  stage: check-as-cran
+  needs: ["build-job"]
+  script:
+    - R CMD check MDSMap_*.tar.gz --as-cran
+  artifacts:
+    when: always
+    paths:
+      - MDSMap.Rcheck

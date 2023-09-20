@@ -18,18 +18,23 @@ default:
     key: "$CI_COMMIT_REF_SLUG"
     paths:
      - installed_deps/
-     - MDSMap/
 
 roxygen-job:
   stage: roxygen
   needs: ["deps-job"]
   script:
     - R -e "roxygen2::roxygenise(\"MDSMap\")"
+  artifacts:
+    paths:
+      MDSMap
 
 deps-job:
   stage: deps
   script:
     - cd MDSMap && R -e "remotes::install_deps(dependencies=TRUE)"
+  artifacts:
+    paths:
+      MDSMap
 
 rcmdcheck-job:
   stage: rcmdcheck

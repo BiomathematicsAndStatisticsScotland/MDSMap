@@ -926,15 +926,15 @@ plot.pcmap <- function (x,D1lim=NULL,D2lim=NULL,displaytext=TRUE,...){
 	    labels=locikey$confplotno
 	  }
       graphics::plot(smacofsym$conf,type="n",main='MDS with principal curve',xlim=D1lim,ylim=D2lim,xlab='Dim 1',ylab='Dim 2')
-      text(smacofsym$conf,labels=labels,cex=0.8)
-      lines(pc)
+      graphics::text(smacofsym$conf,labels=labels,cex=0.8)
+      graphics::lines(pc)
       if (displaytext==TRUE)  {
 	    labels1=locimap$locus
 	  } else  {
 	    labels1=locimap$confplotno
 	  }
       graphics::plot(locimap$position,locimap$nnfit,type='n',xlab='Position',ylab='nnfit',main='nearest neighbour fits')
-      text(locimap$position,locimap$nnfit,labels1)
+      graphics::text(locimap$position,locimap$nnfit,labels1)
     })
 }
 
@@ -992,24 +992,24 @@ plot.pcmap3d <- function (x,D1lim=NULL,D2lim=NULL,D3lim=NULL,displaytext=TRUE,..
 	}
     graphics::par(mfrow=c(2,2))
     graphics::plot(smacofsym$conf[,'D1'],smacofsym$conf[,'D2'],type="n",main='MDS with principal curve',xlab='Dimension 1',ylab='Dimension 2',xlim=D1lim,ylim=D2lim)
-    text(smacofsym$conf[,'D1'],smacofsym$conf[,'D2'],labels=labels,cex=0.8)
-    lines(pc$s[,'D1'][pc$ord],pc$s[,'D2'][pc$ord])
+    graphics::text(smacofsym$conf[,'D1'],smacofsym$conf[,'D2'],labels=labels,cex=0.8)
+    graphics::lines(pc$s[,'D1'][pc$ord],pc$s[,'D2'][pc$ord])
     graphics::plot(smacofsym$conf[,'D1'],smacofsym$conf[,'D3'],type="n",main='MDS with principal curve',xlab='Dimension 1',ylab='Dimension 3',xlim=D1lim,ylim=D3lim)
-    text(smacofsym$conf[,'D1'],smacofsym$conf[,'D3'],labels=labels,cex=0.8)
-    lines(pc$s[,'D1'][pc$ord],pc$s[,'D3'][pc$ord])
+    graphics::text(smacofsym$conf[,'D1'],smacofsym$conf[,'D3'],labels=labels,cex=0.8)
+    graphics::lines(pc$s[,'D1'][pc$ord],pc$s[,'D3'][pc$ord])
     graphics::plot(smacofsym$conf[,'D2'],smacofsym$conf[,'D3'],type="n",main='MDS with principal curve',xlab='Dimension 2',ylab='Dimension 3',xlim=D2lim,ylim=D3lim)
-    text(smacofsym$conf[,'D2'],smacofsym$conf[,'D3'],labels=labels,cex=0.8)
-    lines(pc$s[,'D2'][pc$ord],pc$s[,'D3'][pc$ord])
+    graphics::text(smacofsym$conf[,'D2'],smacofsym$conf[,'D3'],labels=labels,cex=0.8)
+    graphics::lines(pc$s[,'D2'][pc$ord],pc$s[,'D3'][pc$ord])
     if (displaytext==TRUE) {
 	  labels1=locimap$locus
 	} else {
 	  labels1=locimap$confplotno
 	}
     graphics::plot(locimap$position,locimap$nnfit,type='n',xlab='Position',ylab='nnfit',main='nearest neighbour fits')
-    text(locimap$position,locimap$nnfit,labels1)
+    graphics::text(locimap$position,locimap$nnfit,labels1)
     rgl::plot3d(smacofsym$conf,type="n")
     rgl::text3d(smacofsym$conf,text=labels)
-    lines3d(pc$s[pc$ord,])
+    rgl::lines3d(pc$s[pc$ord,])
   })
 }
 
@@ -1071,27 +1071,27 @@ plot.spheremap <- function (x,displaytext=TRUE,...) {
 	  labels=locikey$confplotno
 	}
     graphics::plot(c(0,1),c(0,1),type='n',axes=F,xlab="",ylab="")
-    text(0.5,0.7,paste('Sym Stress =',round(ssym,digits=4)))
-    text(0.5,0.55,paste('Sphere Stress/Sym Stress =',round(stressratio,digits=4)))
-    text(0.5,0.4,paste('Sphere Stress =',round(ssphere,digits=4)))
+    graphics::text(0.5,0.7,paste('Sym Stress =',round(ssym,digits=4)))
+    graphics::text(0.5,0.55,paste('Sphere Stress/Sym Stress =',round(stressratio,digits=4)))
+    graphics::text(0.5,0.4,paste('Sphere Stress =',round(ssphere,digits=4)))
 
     graphics::plot(smacofsym,plot.type="confplot",type="n",main='Unconstrained',label.conf=list(label=FALSE,pos=1,col=1))
-    text(smacofsym$conf,labels=labels,cex=0.8)
+    graphics::text(smacofsym$conf,labels=labels,cex=0.8)
 	xlower=min(smacofsym$conf[,1],smacofsphere$conf[,1])
     xupper=max(smacofsym$conf[,1],smacofsphere$conf[,1])
     ylower=min(smacofsym$conf[,2],smacofsphere$conf[,2])
     yupper=max(smacofsym$conf[,2],smacofsphere$conf[,2])
     graphics::plot(smacofsym,plot.type="confplot",type="n",main='Unconstrained + Spherical',label.conf=list(label=FALSE,pos=1,col=1),xlim=c(xlower,xupper),ylim=c(ylower,yupper))
-    text(smacofsym$conf,labels=labels,cex=0.8)
+    graphics::text(smacofsym$conf,labels=labels,cex=0.8)
     l=dim(smacofsphere$conf)[1]-1
-    text(smacofsphere$conf[1:l+1,],labels=labels,cex=0.8,col="red") 
+    graphics::text(smacofsphere$conf[1:l+1,],labels=labels,cex=0.8,col="red") 
     if (displaytext==TRUE)  {
 	  labels1=locimap$locus 
 	} else {
 	  labels1=locimap$confplotno
 	}
     graphics::plot(locimap$position,locimap$nnfit,type='n',xlab='Position',ylab='nnfit',main='nearest neighbour fits')
-    text(locimap$position,locimap$nnfit,labels1)
+    graphics::text(locimap$position,locimap$nnfit,labels1)
   })
 }
 

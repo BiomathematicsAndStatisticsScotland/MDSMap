@@ -57,6 +57,7 @@ build-job:
       - MDSMap_*.tar.gz
 
 check-as-cran-job:
+  image: rocker/verse
   stage: check-as-cran
   needs: ["build-job"]
   script:

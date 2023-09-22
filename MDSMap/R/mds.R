@@ -89,6 +89,7 @@
 #' @examples
 #' smap<-calc.maps.sphere(system.file("extdata", "lgI.txt", package="MDSMap"),
 #' weightfn='lod',mapfn='kosambi')
+#' plot(smap)
 #' @export
 calc.maps.sphere<-function(fname,p=100,n=NULL,weightfn='lod2',mapfn='haldane'){
   lodrf<-calc.pair.rf.lod(fname,weightfn)
@@ -218,8 +219,8 @@ calc.maps.sphere<-function(fname,p=100,n=NULL,weightfn='lod2',mapfn='haldane'){
 #' \code{\link{calc.maps.sphere}}, \code{\link{calc.pair.rf.lod}}, \code{\link[smacof]{smacofSym}}, \code{\link[smacof]{smacofSphere}}, \code{\link{map.to.interval}}, \code{\link{dmap}}
 #'
 #' @examples
-#' map<-calc.maps.pc(system.file("extdata", "lgV.txt", package="MDSMap"),
-#' ndim=2,weightfn='lod2',mapfn='kosambi')
+#' map<-calc.maps.pc(system.file("extdata", "lgI.txt", package="MDSMap"),
+#' ndim=2,weightfn='lod',mapfn='haldane')
 #' plot(map)
 #' @export
 
@@ -317,7 +318,7 @@ calc.maps.pc<-function(fname,spar=NULL,n=NULL,ndim=2,weightfn='lod2',mapfn='hald
 #' \item{locinames}{The names of the markers in the analysis.}
 #'
 #' @examples
-#' lodrf<-calc.pair.rf.lod(system.file("extdata", "lgV.txt", package="MDSMap"), 
+#' lodrf<-calc.pair.rf.lod(system.file("extdata", "lgI.txt", package="MDSMap"), 
 #' "lod2")
 #' @export
 calc.pair.rf.lod<-function(fname,weightfn='lod',...){
@@ -479,7 +480,7 @@ calc.pair.rf.lod<-function(fname,weightfn='lod',...){
 #'
 #' @examples
 #' estimate.map(system.file("extdata", "lgI.txt", package="MDSMap"),
-#' ndim=3)
+#' ndim=2)
 #' @export
 estimate.map<-function(fname,p=NULL,n=NULL,ispc=TRUE,ndim=2,weightfn='lod2',mapfn='haldane',D1lim=NULL,D2lim=NULL,D3lim=NULL,displaytext=TRUE){
   if(!is.null(n)){
@@ -611,7 +612,7 @@ calc.nnfit.from.file<-function(estmap,fname,mapfn='haldane',n=NULL,header=FALSE)
 #' @return a symmetric matrix of pairwise map distances in the same format as the recombination matrix supplied.
 #'
 #' @examples
-#' lodrf<-calc.pair.rf.lod(system.file("extdata", "lgV.txt", package="MDSMap"))
+#' lodrf<-calc.pair.rf.lod(system.file("extdata", "lgI.txt", package="MDSMap"))
 #' mdist=dmap(lodrf$rf,mapfn="haldane")
 #' @export
 dmap<-function(rf,mapfn="haldane"){
@@ -913,8 +914,8 @@ calc.nswaps<-function(map1, map2){
 #' \code{\link{plot.pcmap3d}}, \code{\link{plot.spheremap}},\code{\link[smacof]{plot.smacof}}, \code{\link{calc.maps.pc}}
 #'
 #' @examples
-#' map<-calc.maps.pc(system.file("extdata", "lgV.txt", package="MDSMap"),
-#' ndim=2,weightfn='lod2',mapfn='haldane')
+#' map<-calc.maps.pc(system.file("extdata", "lgI.txt", package="MDSMap"),
+#' ndim=2,weightfn='lod',mapfn='haldane')
 #' plot(map)
 #' @export
 plot.pcmap <- function (x,D1lim=NULL,D2lim=NULL,displaytext=TRUE,...){
@@ -978,8 +979,8 @@ plot.pcmap <- function (x,D1lim=NULL,D2lim=NULL,displaytext=TRUE,...){
 #' \code{\link{plot.pcmap}}, \code{\link{plot.spheremap}},\code{\link[smacof]{plot.smacof}}, \code{\link{calc.maps.pc}}, \code{\link[rgl]{plot3d}}
 #'
 #' @examples
-#' map<-calc.maps.pc(system.file("extdata", "lgV.txt", package="MDSMap"),
-#' ndim=3,weightfn='lod2',mapfn='haldane')
+#' map<-calc.maps.pc(system.file("extdata", "lgI.txt", package="MDSMap"),
+#' ndim=3,weightfn='lod',mapfn='haldane')
 #' plot(map)
 #' @export
 plot.pcmap3d <- function (x,D1lim=NULL,D2lim=NULL,D3lim=NULL,displaytext=TRUE,...) {
@@ -1281,6 +1282,5 @@ sim.bc.rflod.file<-function(fname){
   rf.frame$lod=log((1-rf.frame$rf)^temp[,3]*rf.frame$rf^(l-temp[,3])/(0.5^l),10)
   fn<-paste(fname,".txt",sep="")
   utils::write.table(t(c(d,dim(rf.frame)[1])),file=fn,row.names=FALSE,col.names=FALSE,sep="\t")
-  utils::write.table(rf.frame,file=fn,append=TRUE, quote=FALSE,row.names=FALSE,col.names=FALSE,sep="\t")}
-
-
+  utils::write.table(rf.frame,file=fn,append=TRUE, quote=FALSE,row.names=FALSE,col.names=FALSE,sep="\t")
+}

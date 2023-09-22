@@ -9,7 +9,7 @@ Description: Estimate genetic linkage maps for markers on a single chromosome (o
 License: GPL-3 | file LICENSE
 Depends: R (>= 3.2.0)
 Imports: smacof (>= 1.9.0),
-	princurve, rgl, reshape
+	princurve (>= 2.0.2), rgl, reshape
 RoxygenNote: 7.2.3
 Suggests: qtl, R.rsp
 VignetteBuilder: R.rsp
